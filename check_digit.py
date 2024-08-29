@@ -1,4 +1,6 @@
-#GTIN_13桁
+#!/usr/bin/python3
+
+"""GTIN_13桁"""
 def GTIN_13_check(data):
     i=0
     a=0
@@ -11,12 +13,12 @@ def GTIN_13_check(data):
                 b=b+int(data[i])
             i=i+1
         a=10-int((b+(a*3))%10)
-        
+
         if int(data[-1])==a:
             return True
         else:
             return False
-        
+
     else:
         return False
 
@@ -43,7 +45,7 @@ def Make_GTIN_13(maker_code,product_code):
         return False
 
 
-#GTIN短縮コード_13桁
+"""GTIN短縮コード_13桁"""
 def GTIN_8_check(data):
     i=0
     a=0
@@ -61,7 +63,7 @@ def GTIN_8_check(data):
         else:
             return False
     else:
-        return False  
+        return False
 
 def Make_GTIN_8(product_code,item_code):
     if len(product_code)!=6:
@@ -83,9 +85,9 @@ def Make_GTIN_8(product_code,item_code):
         data=str("00000"+product_code+item_code+str(a))
         return data
     else:
-        return False     
+        return False
 
-#集合包装用商品コード_１４桁
+"""集合包装用商品コード_１４桁"""
 def GTIN_14_check(data):
     i=0
     a=0
@@ -129,7 +131,7 @@ def Make_GTIN_14(indicator_code,maker_code,product_code):
     else:
         return False
 
-#U.P.C._12桁
+"""U.P.C._12桁"""
 def UPC_12_check(data):
     i=0
     a=0
@@ -171,8 +173,7 @@ def Make_UPC_12(UPC_Company_Prefix,item_code):
     else:
         return False
 
- 
-#SSCC出荷包装シリアル番号_18桁
+"""SSCC出荷包装シリアル番号_18桁"""
 def GTIN_18_check(data):
     i=0
     a=0
@@ -215,7 +216,6 @@ def Make_GTIN_18(Extension_code,maker_code,Serial_code):
         return data
     else:
         return False
-    
 
 print(GTIN_13_check("4569951116179"))
 print(GTIN_8_check("0000049968712"))
